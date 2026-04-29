@@ -3,523 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الاشتراكات | شات الاقصى</title>
-    <meta name="description" content="اختر باقة الاشتراك المناسبة واستمتع بمزايا حصرية في اشتراكات شات الاقصى للجوال">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>اشتراكات شات الأقصى | Al-Aqsa Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
-            --primary-dark: #1e40af;
-            --secondary: #f97316;
-            --secondary-light: #fb923c;
-            --accent: #ef4444;
-            --accent-light: #f87171;
-            --success: #10b981;
-            --success-light: #34d399;
-            --warning: #f59e0b;
-            --warning-light: #fbbf24;
-            --bg: #fafafa;
-            --card: #ffffff;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --border: #e5e7eb;
-            --featured: #10b981;
-            --shadow: rgba(37, 99, 235, 0.1);
-        }
-
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            color: var(--text);
-            line-height: 1.8;
-            padding: 20px;
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --dark-bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent-gold: #d4af37;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
         }
 
         * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Tajawal', sans-serif;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: white;
-            color: var(--primary);
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        .back-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateX(-5px);
-        }
-
+        /* ✨ هيدر عصري */
         .hero-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e3a8a 100%);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 30px;
-            text-align: center;
-            margin-bottom: 50px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-section h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-        }
-
-        .section-title {
-            color: var(--text);
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            padding-right: 20px;
-            border-right: 6px solid var(--primary);
-            font-weight: 800;
-        }
-
-        .tiers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .tier-card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 24px;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 2px solid var(--border);
             position: relative;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(13,13,13,1)), 
+                        url('https://images.unsplash.com/photo-1590076215667-873d3950ef31?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
         }
 
-        .tier-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-light);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .tier-card.featured {
-            border-color: var(--featured);
-            background: linear-gradient(to bottom, #ffffff, #f0fdf4);
-        }
-
-        .featured-badge {
+        .hero-section::after {
+            content: '';
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--featured);
-            color: white;
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.85em;
-            font-weight: 700;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
         }
 
-        .tier-name {
-            font-weight: 800;
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-
-        .tier-price {
-            font-size: 3em;
-            color: var(--primary);
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 900;
-            margin: 10px 0;
+            margin: 0;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.2));
         }
 
-        .tier-price span {
-            font-size: 0.4em;
-            color: var(--text-light);
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            letter-spacing: 1px;
         }
 
-        .tier-duration {
-            color: var(--text-light);
+        /* 📊 جدول الاشتراك الاحترافي */
+        .container {
+            max-width: 1100px;
+            margin: -60px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .table-responsive {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 10px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow-x: auto; /* يجعل الجدول يسحب لليمين واليسار في الجوال */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* يمنع الجدول من الانضغاط بشكل قبيح */
+        }
+
+        th {
+            padding: 25px 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            border-bottom: 2px solid #2a2a2a;
+        }
+
+        td {
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 1px solid #252525;
+            color: #d1d1d1;
             font-weight: 500;
         }
 
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            margin: 30px 0;
-            border-radius: 20px;
-            border: 1px solid var(--border);
+        tr:last-child td { border-bottom: none; }
+
+        tr:hover td {
+            background-color: rgba(255,255,255,0.02);
         }
 
-        .permissions-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            min-width: 1000px;
+        /* أيقونات التميز */
+        .check { color: #00ff88; font-size: 1.4rem; filter: drop-shadow(0 0 5px rgba(0,255,136,0.3)); }
+        .cross { color: #ff4b2b; font-size: 1.4rem; opacity: 0.5; }
+
+        .price-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
         }
 
-        .permissions-table th, .permissions-table td {
-            padding: 18px;
+        /* 📱 بطاقة التواصل */
+        .contact-container {
+            margin-top: 50px;
             text-align: center;
-            border-bottom: 1px solid var(--border);
+            padding: 60px 30px;
+            background: radial-gradient(circle at center, #1f1f1f 0%, #161616 100%);
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .permissions-table th {
-            background: #f8fafc;
+        .btn-premium {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--gold-gradient);
+            color: #000;
+            text-decoration: none;
+            border-radius: 100px;
             font-weight: 800;
-        }
-
-        .permission-name {
-            text-align: right !important;
-            font-weight: 700;
-            background: #fdfdfd;
-            position: sticky;
-            right: 0;
-            z-index: 2;
-            border-left: 2px solid var(--border);
-        }
-
-        .tier-check { color: var(--success); font-size: 1.4em; font-weight: bold; }
-        .tier-cross { color: #d1d5db; font-size: 1.2em; }
-
-        .info-box {
-            background: #eff6ff;
-            padding: 25px;
-            border-radius: 20px;
-            border-right: 6px solid var(--primary);
-            margin-top: 20px;
-        }
-
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
             margin-top: 25px;
         }
 
-        .payment-card {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px dashed var(--border);
+        .btn-premium:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
         }
 
-        .payment-card .icon { font-size: 2em; margin-bottom: 10px; }
-
-        .warning-box {
-            background: #fff1f2;
-            padding: 20px;
-            border-radius: 15px;
-            border-right: 6px solid var(--accent);
-            margin-top: 25px;
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        /* تنسيقات الأقسام الجديدة */
-        .response-time-box {
-            background: linear-gradient(135deg, #1e2937 0%, #374151 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border-right: 8px solid var(--warning);
-        }
-
-        .response-time-box h3 { color: var(--warning); margin-bottom: 10px; }
-
-        .steps-list { list-style: none; counter-reset: my-counter; }
-        .steps-list li {
-            padding: 15px 45px 15px 15px;
-            margin-bottom: 10px;
-            background: #f9fafb;
-            border-radius: 12px;
-            position: relative;
-            font-weight: 600;
-        }
-        .steps-list li::before {
-            content: counter(my-counter);
-            counter-increment: my-counter;
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 25px;
-            height: 25px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8em;
-        }
-
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .adv-item {
-            background: #f0fdf4;
-            padding: 15px;
-            border-radius: 12px;
-            color: #166534;
-            font-weight: 600;
-            border-right: 4px solid var(--success);
-        }
-
-        .elite-gift {
-            background: #fffbeb;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #fde68a;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .terms-box {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-        .terms-list { padding-right: 20px; }
-        .terms-list li { margin-bottom: 12px; position: relative; list-style: none; padding-right: 20px; }
-        .terms-list li::before {
-            content: "•";
-            position: absolute;
-            right: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .note-tag {
-            background: #fef2f2;
-            color: #991b1b;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border-right: 5px solid var(--accent);
-            font-weight: 700;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid var(--border);
-        }
-
+        /* 📱 تعديلات الشاشات الصغيرة */
         @media (max-width: 768px) {
-            .hero-section h1 { font-size: 2em; }
-            .card { padding: 20px; }
-            .response-time-box { flex-direction: column; text-align: center; }
+            .hero-section { height: 350px; }
+            h1 { font-size: 2.8rem; }
+            .container { margin-top: -40px; }
+            .table-responsive { border-radius: 15px; }
+            th, td { padding: 15px 10px; font-size: 0.95rem; }
+            .btn-premium { width: 100%; padding: 15px 20px; }
+        }
+
+        /* تجميل شريط التمرير */
+        .table-responsive::-webkit-scrollbar {
+            height: 6px;
+        }
+        .table-responsive::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
         }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <div class="container">
-        <a href="https://www.chat-jawwal.com" class="back-btn">
-            <span>←</span> العودة إلى الشات الرئيسي
-        </a>
+    <header class="hero-section">
+        <h1>شات الأقصى</h1>
+        <div class="subtitle">فخامة الحوار.. وجمال اللقاء</div>
+    </header>
 
-        <div class="hero-section">
-            <h1>💎 الاشتراكات المميزة</h1>
-            <p>اختر الباقة المناسبة واستمتع بمزايا حصرية لا مثيل لها في شات الاقصى</p>
+    <main class="container">
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: right; padding-right: 30px;">المميزات الملكية</th>
+                        <th>الذهبي</th>
+                        <th>الفضي</th>
+                        <th>البرونزي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="text-align: right; padding-right: 30px;">صلاحيات الطرد والحظر</td><td class="check">✦</td><td class="check">✦</td><td class="check">✦</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">إدارة الصور والمحتوى</td><td class="check">✦</td><td class="check">✦</td><td class="check">✦</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">نظام الهدايا الحصري</td><td class="check">✦</td><td class="check">✦</td><td class="check">✦</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">زخرفة النك نيم المتقدمة</td><td class="check">✦</td><td class="check">✦</td><td class="check">✦</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">الخصوصية والمحادثات</td><td class="check">✦</td><td class="check">✦</td><td class="check">✦</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">كشف المتخفين</td><td class="check">✦</td><td class="check">✦</td><td class="check">✦</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">الترقية لرتبة مراقب</td><td class="check">✦</td><td class="check">✦</td><td class="cross">✕</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">إنشاء غرف خاصة مستقلة</td><td class="check">✦</td><td class="cross">✕</td><td class="cross">✕</td></tr>
+                    <tr><td style="text-align: right; padding-right: 30px;">مدة الصلاحية</td><td>60 يوم</td><td>60 يوم</td><td>60 يوم</td></tr>
+                    <tr style="background: rgba(212, 175, 55, 0.05);">
+                        <td style="text-align: right; padding-right: 30px; font-weight: bold; color: var(--accent-gold);">قيمة الاستثمار</td>
+                        <td class="price-label">300 ريال</td>
+                        <td class="price-label">250 ريال</td>
+                        <td class="price-label">200 ريال</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <div class="card">
-            <h2 class="section-title">📦 الباقات المتاحة</h2>
-            <div class="tiers-grid">
-                <div class="tier-card featured">
-                    <div class="featured-badge">الأكثر طلباً ⭐</div>
-                    <div class="tier-name">💎 عضوية النخبة</div>
-                    <div class="tier-price">600 <span>﷼</span></div>
-                    <div class="tier-duration">لمدة 6 شهور</div>
-                </div>
-                <div class="tier-card">
-                    <div class="tier-name">👑 التاج الملكي</div>
-                    <div class="tier-price">500 <span>﷼</span></div>
-                    <div class="tier-duration">لمدة 5 شهور</div>
-                </div>
-                <div class="tier-card">
-                    <div class="tier-name">⚜️ عضوية التميز</div>
-                    <div class="tier-price">400 <span>﷼</span></div>
-                    <div class="tier-duration">لمدة 4 شهور</div>
-                </div>
-                <div class="tier-card">
-                    <div class="tier-name">🌟 عضوية الكريستال</div>
-                    <div class="tier-price">300 <span>﷼</span></div>
-                    <div class="tier-duration">لمدة 4 شهور</div>
-                </div>
-                <div class="tier-card">
-                    <div class="tier-name">⭐ النجمة الذهبية</div>
-                    <div class="tier-price">200 <span>﷼</span></div>
-                    <div class="tier-duration">لمدة 4 شهور</div>
-                </div>
-                <div class="tier-card">
-                    <div class="tier-name">🌑 النجمة السوداء</div>
-                    <div class="tier-price">150 <span>﷼</span></div>
-                    <div class="tier-duration">لمدة 4 شهور</div>
-                </div>
+        <section class="contact-container">
+            <h3 style="font-size: 2rem; margin-bottom: 10px;">هل أنت مستعد لتكون مميزاً؟</h3>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">انضم إلى نخبة الأعضاء في شات الأقصى وتمتع بصلاحيات لا حدود لها.</p>
+            
+            <a href="https://storied-llama-c463e0.netlify.app/" class="btn-premium">تواصل مع الإدارة الآن</a>
+            
+            <div class="footer-note">
+                <p>⚠️ سيتم توجيهك مباشرة لمركز الدعم الفني</p>
+                <p style="opacity: 0.6; font-size: 0.8rem;">* ملاحظة: الرسوم المدفوعة غير قابلة للاسترداد بعد تفعيل الخدمة.</p>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div class="card">
-            <h2 class="section-title">🔧 جدول الصلاحيات</h2>
-            <div class="table-wrapper">
-                <table class="permissions-table">
-                    <thead>
-                        <tr>
-                            <th class="permission-name">الميزة / الصلاحية</th>
-                            <th>💎 النخبة</th>
-                            <th>👑 الملكي</th>
-                            <th>⚜️ التميز</th>
-                            <th>🌟 الكريستال</th>
-                            <th>⭐ الذهبية</th>
-                            <th>🌑 السوداء</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="permission-name">طرد مستخدم</td>
-                            <td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-cross">✗</td>
-                        </tr>
-                        <tr>
-                            <td class="permission-name">الباند / الحظر / التشفير</td>
-                            <td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-cross">✗</td><td class="tier-cross">✗</td>
-                        </tr>
-                        <tr>
-                            <td class="permission-name">سحب المايك</td>
-                            <td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td><td class="tier-check">✓</td>
-                        </tr>
-                        <tr>
-                            <td class="permission-name">لوحة التحكم الكاملة</td>
-                            <td class="tier-check">✓</td><td class="tier-cross">✗</td><td class="tier-cross">✗</td><td class="tier-cross">✗</td><td class="tier-cross">✗</td><td class="tier-cross">✗</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="section-title">💳 طرق الدفع المتاحة</h2>
-            <div class="payment-grid">
-                <div class="payment-card"><div class="icon">🏦</div><div>التحويل البنكي</div></div>
-                <div class="payment-card"><div class="icon">💻</div><div>STC Pay</div></div>
-                <div class="payment-card"><div class="icon">📱</div><div>Apple Pay</div></div>
-                <div class="payment-card"><div class="icon">💳</div><div>بطاقات الائتمان</div></div>
-            </div>
-        </div>
-
-        <div class="response-time-box">
-            <div style="font-size: 3em;">⏰</div>
-            <div>
-                <h3>أوقات الاستجابة:</h3>
-                <p>نحن متواجدون لخدمتك على مدار الساعة. متوسط وقت الاستجابة خلال <strong>15 دقيقة</strong> في الأوقات العادية. للحالات العاجلة، نستجيب فوراً!</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="section-title">💡 إرشادات الاشتراك</h2>
-            <div style="margin-bottom: 30px;">
-                <h3 style="margin-bottom: 15px; color: var(--primary);">📝 خطوات الاشتراك السهلة:</h3>
-                <ul class="steps-list">
-                    <li>اختر الباقة المناسبة لاحتياجاتك من الجدول أعلاه</li>
-                    <li>تواصل معنا عبر إحدى قنوات التواصل المتاحة</li>
-                    <li>اذكر اسم المستخدم الخاص بك بوضوح</li>
-                    <li>اختر طريقة الدفع المناسبة لك</li>
-                    <li>قم بالتحويل وأرسل إيصال الدفع</li>
-                    <li>انتظر التفعيل خلال دقائق معدودة</li>
-                </ul>
-            </div>
-
-            <div style="margin-bottom: 30px;">
-                <h3 style="margin-bottom: 15px; color: var(--success);">✨ مزايا إضافية:</h3>
-                <div class="advantages-grid">
-                    <div class="adv-item">✓ تفعيل فوري بعد تأكيد الدفع</div>
-                    <div class="adv-item">✓ دعم فني متواصل طوال فترة الاشتراك</div>
-                    <div class="adv-item">✓ إشعار قبل انتهاء الاشتراك بوقت كافٍ</div>
-                    <div class="adv-item">✓ ضمان استمرار الاشتراك</div>
-                </div>
-            </div>
-
-            <div>
-                <h3 style="margin-bottom: 15px; color: var(--warning-light);">🎁 مزايا عضوية النخبة الحصرية:</h3>
-                <div class="elite-gift">🎁 غرفة خاصة مجانية مع الاشتراك</div>
-                <div class="elite-gift">🎁 سوبر مجاني هدية لأي صديق تختاره</div>
-                <div class="elite-gift">🎁 بانر خاص باسمك أو أيقونة خاصة</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="section-title">📜 شروط اشتراكات السوبر</h2>
-            <div class="terms-box">
-                <h4 style="margin-bottom: 20px; color: var(--text);">📋 عرض الشروط الكاملة:</h4>
-                <ul class="terms-list">
-                    <li>يجب إحضار إيصال التحويل حتى يتم قبول الاشتراك</li>
-                    <li>لن يتم استرجاع المبلغ بعد التحويل لأي سبب كان</li>
-                    <li>يُمنع الطرد أو الحظر إلا في حال وجود إثبات واضح على مخالفة قوانين الشات (السب، الشتم، السياسة، الدين)</li>
-                    <li>يُمنع التلاعب بالصلاحيات أو استخدامها بطريقة غير مخصصة لها</li>
-                    <li>يجب احترام جميع الأعضاء والإدارة وعدم استخدام ألفاظ خارجة عن الأدب</li>
-                    <li>يُمنع استخدام الإعلانات لأغراض شخصية أو الترويج لحسابات خاصة</li>
-                    <li>يُمنع منح العضوية لشخص آخر أو مشاركتها</li>
-                    <li>الالتزام بنظام اللايكات (500 لايك للأعضاء الجدد كحد أقصى)</li>
-                    <li>يُمنع نقل الرتب أو تغيير الأسماء أو منح الهدايا دون إذن</li>
-                    <li>يُمنع استخدام صلاحية الطرد في الغرف العامة</li>
-                    <li>يُمنع استخدام المخفي لأغراض التجسس في الغرف الخاصة</li>
-                </ul>
-                <div class="note-tag">
-                    🔸 تنويه: في حال ارتكاب أي مخالفة، يحق للإدارة سحب صلاحية السوبر أو إيقاف العضوية مؤقتاً أو بشكل دائم.
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>جميع الحقوق محفوظة © 2026 <strong>شات الاقصى للجوال</strong></p>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 73 || e.keyCode == 83))) return false;
-        };
-        setInterval(function() { debugger; }, 1000);
-    </script>
 </body>
 </html>
